@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  rasa:
+    image: rasa/rasa:3.6.0-full
+    container_name: fhbg-rasa
+    ports:
+      - "5005:5005"
+    volumes:
+      - .:/app
+    command: >
+      rasa run
+      --enable-api
+      --cors "*"
+      --port 5005
+    depends_on:
+      - action-server
+    environment:
+      - ACTION_ENDPOINT_URL=http://action-server:5055/webhook
+    networks:
+      - fhbg-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; s=socket.socket(); s.connect(('localhost', 5005))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  action-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fhbg-action-server
+    ports:
+      - "5055:5055"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+    networks:
+      - fhbg-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; s=socket.socket(); s.connect(('localhost', 5055))"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+networks:
+  fhbg-network:
+    driver: bridge

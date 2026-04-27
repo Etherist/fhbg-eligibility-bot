@@ -1,0 +1,61 @@
+# Git
+.git
+.gitignore
+.gitmodules
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.installed.cfg
+pip-wheel-metadata/
+venv/
+.venv/
+env/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Rasa
+.rasa/
+models/
+train/
+results/
+*.pyc
+*.log
+
+# Project-specific
+reports/
+src/data/nsw_rules.json
+.env
+.env.*
+!.env.example
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# OS
+*.dylib
+*.so
+
+# Dependency caches
+.poetry/
+.tox/

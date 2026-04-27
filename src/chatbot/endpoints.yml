@@ -1,0 +1,10 @@
+# endpoints.yml
+# Endpoints configuration for Rasa
+
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Optional: model server configuration
+# models:
+#   url: "http://localhost:5002/models"
+#   wait_time_between_pulls: 10

@@ -1,0 +1,162 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey
+    - good morning
+    - good afternoon
+    - good evening
+    - hi there
+    - hello there
+    - hey bot
+    - start
+    - begin
+    - let's begin
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - cya
+    - bye bye
+    - good night
+    - take care
+    - thanks bye
+    - that's all
+    - quit
+    - exit
+
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - yeah
+    - y
+    - sure
+    - absolutely
+    - correct
+    - that's right
+    - true
+    - of course
+    - definitely
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - nah
+    - n
+    - not really
+    - false
+    - incorrect
+    - not at all
+    - no way
+
+- intent: inform_state
+  examples: |
+    - NSW
+    - New South Wales
+    - nsw
+    - VIC
+    - Victoria
+    - vic
+    - QLD
+    - Queensland
+    - qld
+    - WA
+    - Western Australia
+    - wa
+    - I'm buying in NSW
+    - The property is in Victoria
+    - Queensland
+    - Western Australia
+
+- intent: inform_income
+  examples: |
+    - my income is [80000](income)
+    - I earn [$90000](income) a year
+    - [120000](income)
+    - about [70000](income) annually
+    - 85k
+    - [95000](income)
+    - my salary is [75000](income)
+    - [130000](income)
+
+- intent: inform_property_price
+  examples: |
+    - the property costs [700000](property_price)
+    - [800000](property_price)
+    - I'm buying for [650000](property_price)
+    - property price is [900000](property_price)
+    - [1200000](property_price)
+    - it's [550000](property_price)
+    - we paid [1000000](property_price)
+    - [400000](property_price)
+
+- intent: inform_first_home
+  examples: |
+    - yes
+    - no
+    - this is my first home
+    - it's not my first property
+    - I'm a first-time buyer
+    - I've owned before
+    - yes, first home
+    - no, I've owned a house before
+
+- intent: inform_citizenship
+  examples: |
+    - I'm an Australian citizen
+    - permanent resident
+    - PR
+    - citizen
+    - I have Australian citizenship
+    - New Zealand citizen
+    - I'm a permanent resident
+    - citizen
+
+- intent: inform_residency
+  examples: |
+    - yes
+    - no
+    - I will live there
+    - I plan to live in the property
+    - it will be my primary residence
+    - no, it's an investment property
+    - I'm buying as an investment
+    - rental property
+
+- intent: inform_property_type
+  examples: |
+    - yes, it's brand new
+    - no, it's an existing home
+    - newly built
+    - existing house
+    - new construction
+    - older property
+    - house and land package
+    - off the plan
+
+- intent: restart
+  examples: |
+    - restart
+    - start over
+    - begin again
+    - let's start again
+    - reset
+    - I want to start over
+    - can we start again
+
+- intent: request_report
+  examples: |
+    - show me the report
+    - give me a summary
+    - what are my results
+    - eligibility status
+    - am I eligible
+    - can I get a PDF
+    - export report

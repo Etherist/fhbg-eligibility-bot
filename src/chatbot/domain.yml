@@ -1,0 +1,147 @@
+version: "3.1"
+
+# Intents (user messages)
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - inform_state
+  - inform_income
+  - inform_property_price
+  - inform_first_home
+  - inform_citizenship
+  - inform_residency
+  - inform_property_type
+  - restart
+  - request_report
+
+# Entities (extracted information)
+entities:
+  - state
+  - income
+  - property_price
+  - first_home
+  - citizenship_status
+  - will_reside
+  - property_is_new
+
+# Slots (conversation memory)
+slots:
+  state:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: state
+  income:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: income
+  property_price:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: property_price
+  first_home_buyer:
+    type: boolean
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: first_home
+  citizenship_status:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: citizenship_status
+  will_reside:
+    type: boolean
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: will_reside
+  property_is_new:
+    type: boolean
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: property_is_new
+  eligibility_report:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+# Responses (bot messages)
+responses:
+  utter_greet:
+    - text: |
+        🏡 **Welcome to the FHBG Eligibility Bot!**
+        I'll help you check if you qualify for the First Home Buyer Grant.
+        Which Australian state are you buying in? (NSW, VIC, QLD, WA)
+  utter_goodbye:
+    - text: |
+        Thank you for using the FHBG Eligibility Bot!
+        Good luck with your home purchase! 🏠
+  utter_ask_income:
+    - text: |
+        What is your annual household income (before tax)?
+        Please enter as a number (e.g., 80000)
+  utter_ask_property_price:
+    - text: |
+        What is the purchase price of the property?
+        Please enter as a number (e.g., 700000)
+  utter_ask_first_home:
+    - text: |
+        Is this your first home?
+        (Please answer **yes** or **no**)
+  utter_ask_citizenship:
+    - text: |
+        What is your citizenship/residency status?
+        (e.g., Australian citizen, Permanent resident)
+  utter_ask_residency:
+    - text: |
+        Do you intend to live in this property as your primary residence?
+        (Please answer **yes** or **no**)
+  utter_ask_property_type:
+    - text: |
+        Is the property newly constructed?
+        (Please answer **yes** or **no**)
+  utter_processing:
+    - text: |
+        Let me check your eligibility...
+  utter_restart:
+    - text: |
+        Let's start over.
+        Which Australian state are you buying in? (NSW, VIC, QLD, WA)
+  utter_default:
+    - text: |
+        I'm sorry, I didn't understand that.
+        Could you please rephrase or answer the current question?
+
+# Forms (for collecting multiple pieces of info in one slot)
+forms:
+  eligibility_form:
+    required_slots:
+      - state
+      - income
+      - property_price
+      - first_home_buyer
+      - citizenship_status
+      - will_reside
+      - property_is_new
+
+# Actions
+actions:
+  - action_check_eligibility
+  - action_generate_report
+  - action_reset_slots
+
+# Session configuration (optional)
+session_config:
+  session_expiration_time: 60  # minutes
+  carry_over_slots_to_new_session: true
