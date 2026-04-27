@@ -34,8 +34,8 @@ graph TB
     end
 
     subgraph "Data Layer"
-        CACHE[Rule Cache - JSON Files]
-        SOURCE[Government Websites (NSW Revenue, SRO VIC, etc.)]
+        CACHE["Rule Cache - JSON Files"]
+        SOURCE["Government Websites (NSW Revenue, SRO VIC, etc.)"]
     end
 
     CLI --> CM
