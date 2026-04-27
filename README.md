@@ -498,9 +498,9 @@ MIT License — see `LICENSE` for details.
 
 **Project Maintainer:** Robert Blandford  
 GitHub: [@Etherist](https://github.com/Etherist)  
-LinkedIn: https://www.linkedin.com/in/robert-b-7aba31a/  
-Email: `perspicacious@tuta.io`  
-Issues: https://github.com/your-username/fhbg-eligibility-bot/issues
+LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/robert-b-7aba31a/)  
+Email: [perspicacious.au](https://perspicacious.au)  
+Issues: https://github.com/Etherist/fhbg-eligibility-bot/issues
 
 ---
 
