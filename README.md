@@ -31,29 +31,27 @@ This repository contains a substantial working implementation with meaningful en
 <sub>Engineering estimate refreshed 2026-09-25 from GitHub repository metadata and remotely read source/test/configuration files. It is an evidence-based maturity estimate, not a claim that every runtime path has been independently executed or externally certified.</sub>
 <!-- engineering-maturity:end -->
 
-> Production-ready AI-powered chatbot for Australian first-home buyer grant eligibility assessment
+> Substantial AI-powered chatbot implementation for Australian first-home buyer grant eligibility assessment
 >
-> Modular agent architecture • 100% test coverage • Enterprise security • Full documentation
+> Modular agent architecture • 49-test suite • documented security controls • extensive technical documentation
 
-[![Tests](https://img.shields.io/github/actions/workflow/status/your-username/fhbg-eligibility-bot/test.yml?branch=main&style=flat-square&logo=github-actions)](https://github.com/your-username/fhbg-eligibility-bot/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![Rasa 3.6](https://img.shields.io/badge/Rasa-3.6.0-ff6b6b?style=flat-square&logo=rasa&logoColor=white)](https://rasa.com/)
 [![docs/security.md](https://img.shields.io/badge/Security-Path%20Traversal%20Protection-critical?style=flat-square&logo=security)](docs/security.md)
-[![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen?style=flat-square)]()
 
 ---
 
 ## Overview
 
-An end-to-end conversational AI system that automates First Home Buyer Grant (FHBG) eligibility assessment for Australian states. Built with a modular multi-agent architecture, the bot collects user information through natural dialogue, validates it against current government rules, and generates comprehensive eligibility reports.
+An end-to-end conversational AI implementation for First Home Buyer Grant (FHBG) eligibility assessment. The bot uses a modular multi-agent architecture to collect user information, interpret state-specific eligibility rules, and generate eligibility reports. The current demonstration uses cached/static rule data with NSW logic implemented; live rule acquisition and broader state coverage remain roadmap work.
 
 **Key capabilities:**
 - Multi-turn conversational interface via Rasa or standalone CLI
 - Autonomous agent orchestration (scraping, validation, reporting)
 - State-specific rule handling (NSW implemented; extensible to all states)
-- 49 automated tests with 100% pass rate
-- Production-grade security hardening
+- 49 automated tests defined across the repository; current CI requires attention
+- Documented security controls including validation, sanitisation and path protections
 
 ---
 
@@ -68,7 +66,7 @@ An end-to-end conversational AI system that automates First Home Buyer Grant (FH
 ### Installation
 
 ```bash
-$ git clone https://github.com/your-username/fhbg-eligibility-bot.git
+$ git clone https://github.com/Etherist/fhbg-eligibility-bot.git
 $ cd fhbg-eligibility-bot
 
 $ python -m venv venv
@@ -224,7 +222,7 @@ Global `restart` command resets to `START` from any state.
 
 ### Security
 
-Production-grade protections built into core agents:
+Implemented security controls in core agents:
 
 | Threat Category | Mitigation |
 |----------------|------------|
@@ -311,9 +309,9 @@ fhbg-eligibility-bot/
 ```bash
 $ pytest -v
 ```
-Output: `49 passed in 2.34s`
+A previous local run recorded `49 passed in 2.34s`; re-run the suite to verify the current state.
 
-### Coverage Report
+### Documented Local Coverage Snapshot
 
 ```bash
 $ pytest --cov=src --cov-report=term-missing
@@ -340,7 +338,7 @@ GitHub Actions executes on every push/PR:
 4. **bandit** (security scanning)
 5. **coverage upload** (Codecov)
 
-All jobs required to pass before merge.
+The workflow is configured with these gates; the current collected CI run requires attention before treating them as release evidence.
 
 ---
 
@@ -500,11 +498,11 @@ $ make test     # Run test suite
 |--------|-------|
 | Production code (agents + chatbot) | 1,872 LOC |
 | Test code | 1,200+ LOC |
-| Test pass rate | 100% (49 tests) |
-| Code coverage | 100% on agent modules |
+| Test suite | 49 tests defined; current CI requires attention |
+| Coverage | README includes a prior local 100% snapshot for listed agent modules; re-run to verify current coverage |
 | Documentation | ~9,500 words across 12 docs |
 | Initial setup time | <2 minutes |
-| Average eligibility check latency | 0.5 s (CLI), 1.2 s (Rasa) |
+| Local benchmark latency | 0.5 s (CLI), 1.2 s (Rasa) in the documented development benchmark |
 
 ---
 
